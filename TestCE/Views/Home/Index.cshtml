@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="dashboard-page">
+    <div class="dashboard-heading">
+        <div>
+            <h2>Welcome to Pavan App </h2>
+            <p>Manage your cases, clients and tasks efficiently.</p>
+            <p>Quick Book Token = @ViewBag.QuickBookToken</p>
+            <p>Open AI Secret = @ViewBag.OpenAIKey</p>
+            <p>Connection String Secret= @ViewBag.ConnectionString</p>
+        </div>
+        <a asp-controller="Home" asp-action="Privacy"
+           class="btn btn-primary">View Details</a>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-6 col-xl-3">
+            <div class="stat-card blue">
+                <div class="stat-icon">▣</div>
+                <p>Total Cases</p>
+                <h3>124</h3>
+                <span>↑ 12% vs. last month</span>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+            <div class="stat-card green">
+                <div class="stat-icon">♟</div>
+                <p>Total Clients</p>
+                <h3>89</h3>
+                <span>↑ 8% vs. last month</span>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+            <div class="stat-card purple">
+                <div class="stat-icon">▦</div>
+                <p>Upcoming Meetings</p>
+                <h3>16</h3>
+                <span>Scheduled meetings</span>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+            <div class="stat-card orange">
+                <div class="stat-icon">☑</div>
+                <p>Pending Tasks</p>
+                <h3>23</h3>
+                <span>Tasks to complete</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="dashboard-card">
+                <h5>Recent Cases</h5>
+
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>Case ID</th>
+                                <th>Client</th>
+                                <th>Case Type</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>C-1001</td>
+                                <td>John Smith</td>
+                                <td>Civil</td>
+                                <td><span class="status open">Open</span></td>
+                            </tr>
+                            <tr>
+                                <td>C-1002</td>
+                                <td>Sarah Johnson</td>
+                                <td>Family</td>
+                                <td><span class="status progress">In Progress</span></td>
+                            </tr>
+                            <tr>
+                                <td>C-1003</td>
+                                <td>Michael Brown</td>
+                                <td>Criminal</td>
+                                <td><span class="status closed">Closed</span></td>
+                            </tr>
+                            <tr>
+                                <td>C-1004</td>
+                                <td>Emily Davis</td>
+                                <td>Civil</td>
+                                <td><span class="status open">Open</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="dashboard-card">
+                <h5>Quick Actions</h5>
+
+                <a class="quick-action" asp-controller="Home"
+                   asp-action="Privacy">＋ Add New Case</a>
+
+                <a class="quick-action" asp-controller="Home"
+                   asp-action="Privacy">＋ Add Client</a>
+
+                <a class="quick-action" asp-controller="Home"
+                   asp-action="Privacy">＋ Schedule Meeting</a>
+
+                <a class="quick-action" asp-controller="Home"
+                   asp-action="Privacy">▤ View Reports</a>
+            </div>
+        </div>
+    </div>
+</div>

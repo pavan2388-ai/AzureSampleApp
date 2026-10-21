@@ -1,0 +1,60 @@
+﻿@model List<AttachmentItem>
+
+<h2>Case Attachments</h2>
+
+@if (TempData["Message"] != null)
+{
+    <p>@TempData["Message"]</p>
+}
+
+<form asp-controller="Attachments"
+      asp-action="Upload"
+      method="post"
+      enctype="multipart/form-data">
+
+    @Html.AntiForgeryToken()
+
+    <input type="file" name="file" required />
+    <button type="submit">Upload Attachment</button>
+</form>
+
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FileName</td>
+                <td>
+                    <a asp-controller="Attachments"
+                       asp-action="Download"
+                       asp-route-id="@item.BlobName">
+                        Download
+                    </a>
+
+                    <form asp-controller="Attachments"
+                          asp-action="Delete"
+                          method="post"
+                          style="display:inline"
+                          onsubmit="return confirm('Delete this attachment?');">
+
+                        @Html.AntiForgeryToken()
+
+                        <input type="hidden"
+                               name="id"
+                               value="@item.BlobName" />
+
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
