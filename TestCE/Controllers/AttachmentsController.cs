@@ -10,6 +10,7 @@ public class AttachmentsController : Controller
         _blobService = blobService;
     }
 
+
     public async Task<IActionResult> Index()
     {
         var attachments = await _blobService.GetAllAsync();
